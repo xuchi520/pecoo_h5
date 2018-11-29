@@ -2,14 +2,31 @@
   display: none;
 }
 
-@mixin bgCol ($col:#333333, $bak:#FFFFFF) {
-  background: $bak;
+$color1: #333333; // 主题色
+$color2: #D74A42; // 亮色
+$bg: #F6F8FA; // 背景颜色
+
+@mixin w($w: 100%) {
+  width: $w;
+}
+
+@mixin overflow ($val: hidden) {
+  overflow: $val
+}
+
+@mixin bgCol ($col:$color1, $bg:#FFFFFF) {
+  background: $bg;
   color: $col
 }
 
 @mixin wh ($w:null, $h:null) {
   width: $w;
   height: $h;
+}
+
+@mixin maxWH ($w: null, $h: null) {
+  max-width: $w;
+  max-height: $h;
 }
 
 @mixin column {
@@ -24,7 +41,7 @@
   align-items: center;
 }
 
-@mixin line($line:0.4rem) {
+@mixin line($line: 80px) {
   text-align: center;
   line-height: $line
 }
@@ -32,4 +49,31 @@
 @mixin font($size: 16px, $family: 'PingFang-SC-Regular') {
   font-size: $size;
   font-family: $family
+}
+
+@mixin border($line: 1px solid #DDDDDD, $radius: 6px) {
+  border: $line;
+  border-radius: $radius;
+}
+
+@mixin oneDisplay {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin twoDisplay {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@mixin fixed ($top: 0, $left: 0) {
+  position: fixed;
+  top: $top;
+  $left: $left;
 }
