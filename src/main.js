@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store/store'
 import 'vue-ydui/dist/ydui.rem.css'
+Vue.use(router)
 // 保留两位小数
 Vue.filter('keepTwoNum', function (value) {
   value = Number(value)
@@ -15,7 +16,7 @@ Vue.filter('keepStar', function (value) {
   return value.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')
 })
 /* eslint-disable no-new */
-new Vue({
+export default new Vue({
   el: '#app',
   router,
   store,
