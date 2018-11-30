@@ -1,6 +1,7 @@
 <template>
     <div>
         <div>首页</div>
+        <not-data/>
     </div>
 </template>
 <script>

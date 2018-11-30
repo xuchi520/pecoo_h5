@@ -191,7 +191,7 @@ export function requestControl (api, data, bus, cb = () => {}) {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
               'accessToken': accessToken || '',
-              'sourceMode': 'PC',
+              'sourceMode': 'H5',
               'version': 'V1.0.0',
               'clientTime': new Date().getTime()
             },
@@ -230,7 +230,7 @@ export function requestControl (api, data, bus, cb = () => {}) {
             headers: {
               'Content-Type': 'application/json',
               'accessToken': accessToken || '',
-              'sourceMode': 'PC',
+              'sourceMode': 'H5',
               'version': 'V1.0.0',
               'clientTime': new Date().getTime()
             },
@@ -286,7 +286,7 @@ export function requestControl (api, data, bus, cb = () => {}) {
             headers: {
               'Content-Type': 'multipart/form-data',
               'accessToken': accessToken || '',
-              'sourceMode': 'PC',
+              'sourceMode': 'H5',
               'version': 'V1.0.0',
               'clientTime': new Date().getTime()
             },

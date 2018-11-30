@@ -179,6 +179,14 @@ userCenter.orderpaylog = {url: apis + '/userlog/orderpaylog', method: 'post'}
 Classify.queryQualityGoods = {url: apis + '/indexPage/queryQualityGoods.htm', method: 'post'}
 // 获取父节点下的分类列表（包含二、三级）
 Classify.parentList = {url: apis + '/category/list/parent', method: 'post'}
+
+// 获取一级分类接口
+Classify.firstCate = {url: apis + '/category/list/first', method: 'post'}
+// 获取分类筛选的条件
+Classify.cateScreen = {url: apis + '/category/list/second/parent', method: 'post'}
+// 根据分类查询拍品
+Auction.queryGoodsByKind = {url: apis + '/auctiongoods/list', method: 'post'}
+
 // 详情页数据展示
 Detail.queryGoodsMess = {url: apis + '/auctiongoods/detail', method: 'post'}
 // 拍品信息翻译
@@ -199,8 +207,6 @@ Auction.getcontinentauctionhouse = {url: apis + '/auctionhouse/count/bycontinent
 Auction.getauctionhousedetail = {url: apis + '/auctionhouse/detail', method: 'post'}
 // 查询往期20条拍卖会（拍卖行详情往期历史）
 Auction.getpastauctionbyhouseid = {url: apis + '/auction/listpast', method: 'post'}
-// 根据分类查询拍品
-Auction.queryGoodsByKind = {url: apis + '/auctiongoods/list', method: 'post'}
 // 根据当天的拍品
 Auction.currentauction = {url: apis + '/auction/list/currentauction', method: 'post'}
 // 分页查询全球拍卖会
