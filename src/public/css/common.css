@@ -1,7 +1,7 @@
 
 @charset "utf-8";
 html {
-    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simhei, Verdana, SimSun;
+    font-family: "PingFang-SC-Regular", "PingFang-SC-Medium", "ArialMT", tahoma, arial, simhei, Verdana, SimSun;
 }
 
 body {
@@ -94,7 +94,9 @@ textarea,
 select {
     *font-size: 100%
 }
-
+.fixed-top{
+    margin-top: 44px;
+}
 .clear:after {
     display: block;
     content: "clear";

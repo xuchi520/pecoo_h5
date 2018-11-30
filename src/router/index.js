@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/modules/home/Index'
 import Home from '@/modules/home/Home'
-import Classify from '@/modules/auctionList/Classify'
+import Classify from '@/modules/classify/Classify'
+import AuctionList from '@/modules/classify/AuctionList'
 Vue.use(Router)
 
 export default new Router({
@@ -32,8 +33,12 @@ export default new Router({
         {
           path: 'classify',
           name: 'classify',
-          component: Classify,
-          meta: { title: '分类' }
+          component: Classify
+        },
+        {
+          path: 'auctionList',
+          name: 'auctionList',
+          component: AuctionList
         }
       ]
     }

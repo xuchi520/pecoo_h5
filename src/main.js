@@ -5,7 +5,16 @@ import App from './App'
 import router from './router'
 import store from './store/store'
 import 'vue-ydui/dist/ydui.rem.css'
+import VueLazyload from 'vue-lazyload'
+// 全局公共组件
+import notData from '@/components/common/NotData'
+import {NavBar} from 'vue-ydui/dist/lib.rem/navbar'
+import {InfiniteScroll} from 'vue-ydui/dist/lib.rem/infinitescroll'
+Vue.component('not-data', notData)
+Vue.component(InfiniteScroll.name, InfiniteScroll)
+Vue.component(NavBar.name, NavBar)
 Vue.use(router)
+Vue.use(VueLazyload)
 // 保留两位小数
 Vue.filter('keepTwoNum', function (value) {
   value = Number(value)
