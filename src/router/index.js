@@ -33,7 +33,8 @@ export default new Router({
         {
           path: 'classify',
           name: 'classify',
-          component: Classify
+          component: Classify,
+          meta: { title: '分类' }
         },
         {
           path: 'auctionList',

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <yd-navbar fixed height="44px" title="分类"></yd-navbar>
+    <yd-navbar fixed height="44px" title="分类" fontsize="16px"></yd-navbar>
     <div class="classify-box">
       <router-link v-for="(ele, index) in classifyData" :key="ele.name" :to="{path: '/auctionList', query: {code: ele.code, name: ele.name}}" class="elem-class">
         <div class="class-pic" :style="setPicMargin(index)">

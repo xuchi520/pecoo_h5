@@ -1,7 +1,9 @@
 <template>
   <div>
-    <yd-navbar fixed height="44px" :title="title">
-      <!-- <img src="" alt="" slot="right"> -->
+    <yd-navbar fixed height="44px" :title="title" fontsize="16px">
+      <a href="javacript:void(0);" slot="left">
+        <img src="../../assets/images/common/return.png" alt="">
+      </a>
     </yd-navbar>
     <Condition :sortList="sortList"></Condition>
   </div>

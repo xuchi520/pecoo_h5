@@ -42,6 +42,7 @@ export default {
   .not-data-content{
     @include font($size: 14px, $family: 'PingFang-SC-Medium');
     color: #BBBBBB;
+    margin-top: 10px;
   }
 }
 </style>
