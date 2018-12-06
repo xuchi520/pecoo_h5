@@ -534,6 +534,11 @@ export function guessYouLikePC (data) {
 export function recommendgoodsUrl (data) {
   return requestControl(luxuryGoods.recommendgoodsUrl, data, bus)
 }
+// 奢侈品推荐页
+export function queryLuxuryGoods (data) {
+  return requestControl(luxuryGoods.queryLuxuryGoods, data, bus)
+}
+
 // 直接请求用的接口
 let thirdloginUrl = baseUrl + '/thirdlogin/loginPC'
 let getValidateImgCodeUrl = baseUrl + '/register/vcode/pc'// PC端用户注册获取图片验证码接口

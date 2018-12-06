@@ -5,7 +5,7 @@
       <p class="left-icon">A-Z</p>
       </router-link>
       <div class="search">
-        <router-link to="">
+        <router-link to="/luxurysearchgoods">
         <img src="../../assets/images/luxury/search_icon.png">
         <p>搜索拍品、奢侈品</p>
         </router-link>
@@ -16,7 +16,8 @@
       <swiper :options="swiperOption">
         <swiper-slide v-for="(item,index) in bannerList" :key="index">
           <a :href="item.gotoUrl">
-          <img class="slide-img" :src="item.picUrl">
+          <!--<img class="slide-img" :src="item.picUrl">-->
+          <img class="slide-img" src="http://n.sinaimg.cn/front/200/w600h400/20181202/LLqw-hpfycet0284255.jpg">
           </a>
         </swiper-slide>
       </swiper>
@@ -71,12 +72,12 @@ export default {
         pagination: {
           el: '.swiper-pagination'
         },
-        autoplay: {
-          delay: 2000,
-          stopOnLastSlide: false,
-          disableOnInteraction: false,
-          loop: true
-        },
+        // autoplay: {
+        //   delay: 2000,
+        //   stopOnLastSlide: false,
+        //   disableOnInteraction: false,
+        //   loop: true
+        // },
         watchSlidesProgress: true,
         centeredSlides: true,
         spaceBetween: 10,

@@ -275,6 +275,8 @@ luxuryGoods.luxuryFirst = {url: apis + '/luxury/category/list/first', method: 'p
 luxuryGoods.navFirst = {url: apis + '/luxury/category/list/first', method: 'post'}
 // 猜你喜欢
 luxuryGoods.guessYouLikePC = {url: recommendapi + '/recommend/luxury/guessYouLikePC', method: 'post'}
+luxuryGoods.queryLuxuryGoods = {url: searchapi + '/search/luxury/queryLuxuryGoods', method: 'post'}
+
 // 奢侈品商品推荐页
 luxuryGoods.recommendgoodsUrl = {url: apis + '/luxury/index/recommendgoods', method: 'post'}
 export {Auth, PecooIndex, userCenter, Classify, Detail, Auction, Order, userCard, luxuryGoods}

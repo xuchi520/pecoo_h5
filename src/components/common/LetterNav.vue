@@ -87,7 +87,7 @@ export default {
   height: 100%;
   max-height: 100%;
   position: fixed;
-  top: 0.44rem;
+  top: .88rem;
   bottom: 0;
   right: 0;
   ul {
@@ -96,8 +96,7 @@ export default {
     li {
       font-size: 0.14rem;
       box-sizing: border-box;
-      padding: 0rem 0.12rem;
-      color:#999;
+      padding: 0.04rem 0.12rem;
     }
   }
   .tip-mask {

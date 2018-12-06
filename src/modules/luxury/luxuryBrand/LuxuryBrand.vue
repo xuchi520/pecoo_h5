@@ -1,37 +1,35 @@
 <template>
   <div class="brand">
     <div class="title">
-      <img src="../../../assets/images/luxury/return.png" @click='ClickBack' alt>
+      <img src="../../../assets/images/luxury/search_icon.png" alt>
       <span>品牌A-Z</span>
-      <img src="../../../assets/images/luxury/search_icon.png" @click="toSearch" alt>
+      <router-link to="/luxurysearchbrand">
+        <img src="../../../assets/images/luxury/search_icon.png" alt>
+      </router-link>
     </div>
     <div class="content">
       <div class="brand-item" v-for="(brand, index) in brandList" :key="index">
         <div class="letter-title" :id="titleList[index].title">{{titleList[index].title}}</div>
         <ul class="letter-item">
-          <li
-            v-for="item in brand.brand"
-            v-bind:key="item.name"
-            @click="toGoodsList(item.name)"
-          >{{item.name}}</li>
+          <li v-for="item in brand.brand" v-bind:key="item.name">{{item.name}}</li>
         </ul>
       </div>
     </div>
-    <letter-nav :letterList="titleList" :active="activeLetter" @letter-nav-index="getLetterIndex"></letter-nav>
+    <letter-nav :letterList="titleList" @letter-nav-index="getLetterIndex"></letter-nav>
   </div>
 </template>
 <script>
+// import Vue from 'vue'
+// import 'swiper/dist/css/swiper.css'
+// import pecooFooter from '@/components/common/Footer'
 import { luxuryQuerygoodsbrand } from '../../../api/resetApi'
 import letterNav from '@/components/common/LetterNav'
-import { setTimeout } from 'timers'
 export default {
   name: 'luxury-brand',
   data () {
     return {
       brandList: [],
-      titleList: [],
-      letterPositionArr: [],
-      activeLetter: '#'
+      titleList: []
     }
   },
   components: {
@@ -62,47 +60,10 @@ export default {
       let eleTop = document.getElementById(e).offsetTop
       let eleHeight = document.getElementById(e).clientHeight
       document.documentElement.scrollTo(0, eleTop - eleHeight)
-      this.getCurrentLetterIndex(eleTop - eleHeight + 100)
-    },
-    // 跳转搜索
-    toSearch () {
-      this.$router.push('LuxurySearch')
-    },
-    // 返回箭头返回主页
-    ClickBack () {
-      this.$router.go(-1)
-    },
-    getCurrentLetterIndex (num) {
-      for (let i = 0; i < this.letterPositionArr.length; i++) {
-        if (this.letterPositionArr[i] < num && this.letterPositionArr[i + 1] > num) {
-          this.activeLetter = this.titleList[i].title
-        }
-      }
-    },
-    getLetterPosition () {
-      Array.prototype.slice.call(document.getElementsByClassName('letter-title')).forEach(element => {
-        this.letterPositionArr.push(element.offsetTop)
-      })
-    },
-    toGoodsList (e) {
-      this.$router.push({
-        path: 'luxurybrandgood',
-        query: {
-          brand: e
-        }
-      })
     }
   },
   mounted () {
     this.getBrandList()
-    this.getCurrentLetterIndex()
-    let _this = this
-    setTimeout(() => {
-      _this.getLetterPosition()
-    }, 1000)
-    window.onscroll = () => {
-      _this.getCurrentLetterIndex(document.documentElement.scrollTop + 40)
-    }
   }
 }
 </script>
@@ -119,7 +80,6 @@ export default {
   align-items: center;
   position: fixed;
   top: 0;
-  z-index: 100;
   width: 100%;
   img {
     width: 0.34rem;
