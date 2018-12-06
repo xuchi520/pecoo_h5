@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/modules/home/Home'
-import Classify from '@/modules/auctionList/Classify'
+import Classify from '@/modules/classify/Classify'
 import Luxury from '@/modules/luxury/Luxury'
 import LuxuryIndex from '@/modules/luxury/LuxuryIndex'
 import LuxuryBrand from '@/modules/luxury/luxuryBrand/LuxuryBrand'
@@ -35,14 +35,7 @@ export default new Router({
       path: '/index',
       name: 'home',
       component: Home,
-      children: [
-        {
-          path: 'classify',
-          name: 'classify',
-          component: Classify,
-          meta: { title: '分类' }
-        }
-      ]
+      meta: { title: '首页' }
     },
     {
       path: '/',
