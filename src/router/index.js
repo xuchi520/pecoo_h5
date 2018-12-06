@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/modules/home/Index'
 import Home from '@/modules/home/Home'
 import Classify from '@/modules/auctionList/Classify'
 import Luxury from '@/modules/luxury/Luxury'
@@ -32,7 +31,8 @@ export default new Router({
       redirect: '/index'
     },
     {
-      path: '/',
+      path: '/index',
+      name: 'home',
       component: Home,
       children: [
         {
@@ -120,6 +120,24 @@ export default new Router({
       name: 'luxuryConfirm',
       component: LuxuryConfirm,
       meta: { title: '确认订单' }
+    },
+    {
+      path: '/classify',
+      name: 'classify',
+      component: Classify,
+      meta: { title: '分类' }
+    },
+    {
+      path: '/auctionList',
+      name: 'auction-list',
+      component: AuctionList,
+      meta: { title: '商品列表' }
+    },
+    {
+      path: '*',
+      component: {
+        template: `<div>404</div>`
+      }
     }
   ]
 })

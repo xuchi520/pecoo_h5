@@ -14,7 +14,7 @@ html {
 } */
 
 input:-webkit-autofill {
--webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
 body,
@@ -46,7 +46,8 @@ a,
 span {
     padding: 0;
     margin: 0;
-    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simhei, Verdana, SimSun;
+    font-family: "PingFang-SC-Regular", "Microsoft YaHei", "微软雅黑", tahoma, arial, simhei, Verdana, SimSun;
+    font-size: 14px;
 }
 
 strong,
@@ -94,7 +95,43 @@ textarea,
 select {
     *font-size: 100%
 }
-
+.fixed-top{
+    margin-top: 44px;
+}
+.header{
+    height: 44px;
+}
+/* 返回按钮 */
+.back-arrow{
+    width: 20px;
+    height: 18px;
+    margin-left: 10px;
+}
+/* 搜索的icon */
+.search-icon{
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+/* 图片居中 */
+.pro-img{
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+/* 遮罩 */
+.mask{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    z-index: 98;
+}
 .clear:after {
     display: block;
     content: "clear";

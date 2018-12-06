@@ -374,6 +374,24 @@ export function Userupload (data) {
 export function queryQualityGoods (data) {
   return requestControl(Classify.queryQualityGoods, data, bus)
 }
+
+// 获取一级分类的接口
+export function firstCate (data) {
+  return requestControl(Classify.firstCate, data, bus)
+}
+// 获取二级分类筛选的条件
+export function cateScreen (data) {
+  return requestControl(Classify.cateScreen, data, bus)
+}
+// 根据分类查询拍品
+export function queryGoodsByKind (data) {
+  return requestControl(Auction.queryGoodsByKind, data, bus)
+}
+// 拍品筛选的接口
+export function getFilter (data) {
+  return requestControl(Auction.getFilter, data, bus)
+}
+
 // 获取父节点下的分类列表（包含二、三级）
 export function parentList (data) {
   return requestControl(Classify.parentList, data, bus)
@@ -421,10 +439,6 @@ export function currentauction (data) {
 // 查询往期20条拍卖会（拍卖行详情往期历史）
 export function getpastauctionbyhouseid (data) {
   return requestControl(Auction.getpastauctionbyhouseid, data, bus)
-}
-// 根据分类查询拍品
-export function queryGoodsByKind (data) {
-  return requestControl(Auction.queryGoodsByKind, data, bus)
 }
 // 分页查询全球拍卖会
 export function pageAuctionPc (data) {
