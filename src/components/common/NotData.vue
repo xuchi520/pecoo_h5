@@ -29,20 +29,20 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.not-data-box{
-  width: 100%;
-  text-align: center;
-  .not-data-pic{
-    @include maxWH($w: 120px, $h: 120px);
-    margin: 0 auto;
-    img{
-      @include maxWH($w: 100%, $h: 100%);
-    }
-  }
-  .not-data-content{
-    @include font($size: 14px, $family: 'PingFang-SC-Medium');
-    color: #BBBBBB;
-    margin-top: 10px;
-  }
-}
+// .not-data-box{
+//   width: 100%;
+//   text-align: center;
+//   .not-data-pic{
+//     @include maxWH($w: 120px, $h: 120px);
+//     margin: 0 auto;
+//     img{
+//       @include maxWH($w: 100%, $h: 100%);
+//     }
+//   }
+//   .not-data-content{
+//     @include font($size: 14px, $family: 'PingFang-SC-Medium');
+//     color: #BBBBBB;
+//     margin-top: 10px;
+//   }
+// }
 </style>

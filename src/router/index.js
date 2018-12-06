@@ -14,6 +14,7 @@ import LuxuryAddressEdit from '@/modules/luxury/luxuryAddress/LuxuryAddressEdit'
 import LuxuryList from '@/modules/luxury/luxuryList/LuxuryList'
 import Mine from '@/modules/mine/Mine'
 import LuxuryConfirm from '@/modules/luxury/luxuryConfirm/LuxuryConfirm'
+import AuctionList from '@/modules/classify/AuctionList'
 Vue.use(Router)
 
 export default new Router({
@@ -35,12 +36,6 @@ export default new Router({
       name: 'home',
       component: Home,
       children: [
-        {
-          path: 'index',
-          name: 'index',
-          component: Index,
-          meta: { title: '拍库' }
-        },
         {
           path: 'classify',
           name: 'classify',
