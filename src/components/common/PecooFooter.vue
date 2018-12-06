@@ -33,7 +33,7 @@ export default {
         },
         {
           title: '奢侈品',
-          link: '/luxury',
+          link: '/luxuryindex',
           default: 'https://static.pecoo.com/images/h5/luxuries.png',
           selected: 'https://static.pecoo.com/images/h5/luxuries_selected.png'
         },
