@@ -2,7 +2,7 @@
   <ul class="list">
     <li v-for="(item, index) in listData" :key="item.id" class="item-list">
       <div class="pic" :style="setMargin(index)">
-        <img v-lazy="item.thumbnailUrl" class="pro-img">
+        <img :src="item.thumbnailUrl" class="pro-img">
       </div>
       <p class="goods-name">Lot{{item.lotNum}}: {{item.goodsName}}</p>
       <p class="start-time">{{item.startTimeStr}}</p>

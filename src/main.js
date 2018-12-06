@@ -5,7 +5,6 @@ import App from './App'
 import router from './router'
 import store from './store/store'
 // 全局公共组件
-import { Lazyload, InfiniteScroll } from 'mint-ui'
 import infiniteScroll from 'vue-infinite-scroll'
 import NotData from '@/components/common/NotData'
 import PecooHeader from '@/components/common/PecooHeader'
@@ -16,8 +15,6 @@ Vue.component('not-data', NotData)
 Vue.component('pecoo-header', PecooHeader)
 Vue.component('pecoo-footer', PecooFooter)
 Vue.component('pecoo-content', PecooContent)
-Vue.use(Lazyload)
-Vue.use(InfiniteScroll)
 Vue.use(router)
 // 保留两位小数
 Vue.filter('keepTwoNum', function (value) {

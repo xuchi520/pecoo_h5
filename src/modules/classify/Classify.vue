@@ -5,7 +5,7 @@
       <div class="classify-box">
         <router-link v-for="(ele, index) in classifyData" :key="ele.name" :to="'/auctionList?code=' + ele.code + '&name=' + ele.name" class="elem-class">
           <div class="class-pic" :style="setPicMargin(index)">
-            <img v-lazy="ele.pic">
+            <img :src="ele.pic">
           </div>
           <p class="class-name" :style="setNameMargin(index)">{{ele.name}}</p>
         </router-link>

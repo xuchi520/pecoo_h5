@@ -4,6 +4,9 @@
       <a href="javascript:window.history.go(-1)" slot="left">
         <img src="../../assets/images/common/return.png" alt="" class="back-arrow">
       </a>
+      <a href="javascript:window.history.go(-1)" slot="right">
+        1111
+      </a>
     </pecoo-header>
     <ul class="condition">
       <li v-for="(item, index) in sortList" :key="item.name" @click="selectSort(index)">
