@@ -1,11 +1,11 @@
 <template>
   <div>
     <pecoo-header :title="title">
-      <a href="javascript:window.history.go(-1)" slot="left">
+      <a href="javascript:window.history.go(-1)" slot="left" class="back">
         <img src="../../assets/images/common/return.png" alt="" class="back-arrow">
       </a>
       <a href="javascript:window.history.go(-1)" slot="right">
-        1111
+        注册
       </a>
     </pecoo-header>
     <ul class="condition">
@@ -176,6 +176,7 @@ export default {
       }
       this.selectedIndex = null
       this.pageNum = 1
+      this.listData = []
       this.getListData(this.code, 1, this.sort, this.priceUnit, this.priceStart, this.priceEnd, this.startTime)
     },
     // 取消遮罩
@@ -190,6 +191,7 @@ export default {
       this.startTime = params.startTime
       this.pageNum = 1
       this.listData = []
+      console.log(this.listData.length)
       this.getListData(this.code, 1, this.sort, this.priceUnit, this.priceStart, this.priceEnd, this.startTime)
     }
   },

@@ -1,12 +1,14 @@
 <template>
   <div class="header">
-    <div class="header-btn">
-      <slot name="left"></slot>
-    </div>
-    <div v-text="title" class="header-title"></div>
-    <div class="header-btn">
-      <slot name="right"></slot>
-    </div>
+    <ul class="header-box">
+      <li class="header-btn header-left">
+        <slot name="left"></slot>
+      </li>
+      <li v-text="title" class="header-title"></li>
+      <li class="header-btn header-right">
+        <slot name="right"></slot>
+      </li>
+    </ul>
   </div>
 </template>
 <script>
@@ -24,18 +26,33 @@ export default {
   @include fixed;
   @include font;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   z-index: 99;
-  div{
-    height: 44px;
+  .header-box{
+    @include wh($w: 100%, $h: 44px);
     display: flex;
     align-items: center;
-  }
-  .header-title{
-    width: 60%;
-    @include justify($type: center);
-  }
-  .header-btn{
-    width: 20%;
+    li{
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .header-title{
+      width: 70%;
+      @include justify($type: center);
+    }
+    .header-btn{
+      @include wh($w: 15%);
+    }
+    .header-right{
+      justify-content: flex-end;
+      padding-right: 10px;
+    }
+    .header-left{
+      padding-left: 10px;
+      justify-content: flex-start;
+    }
   }
 }
 </style>
