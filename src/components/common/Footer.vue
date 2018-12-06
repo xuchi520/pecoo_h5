@@ -37,7 +37,7 @@ export default {
         },
         {
           title: '奢侈品',
-          link: '/luxury',
+          link: '/luxuryindex',
           active: false,
           imgUrl: 'http://static.ydcss.com/ydui/img/logo.png'
         },

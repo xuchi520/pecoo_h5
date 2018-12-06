@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store/store'
 import 'vue-ydui/dist/ydui.rem.css'
+import 'vue-ydui/dist/ydui.base.css'
 Vue.use(router)
 // 保留两位小数
 Vue.filter('keepTwoNum', function (value) {
