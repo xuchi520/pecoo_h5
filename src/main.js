@@ -4,17 +4,21 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/store'
-import 'vue-ydui/dist/ydui.rem.css'
-import VueLazyload from 'vue-lazyload'
 // 全局公共组件
-import notData from '@/components/common/NotData'
-import {NavBar} from 'vue-ydui/dist/lib.rem/navbar'
-import {InfiniteScroll} from 'vue-ydui/dist/lib.rem/infinitescroll'
-Vue.component('not-data', notData)
-Vue.component(InfiniteScroll.name, InfiniteScroll)
-Vue.component(NavBar.name, NavBar)
+import { Lazyload, InfiniteScroll } from 'mint-ui'
+import infiniteScroll from 'vue-infinite-scroll'
+import NotData from '@/components/common/NotData'
+import PecooHeader from '@/components/common/PecooHeader'
+import PecooFooter from '@/components/common/PecooFooter'
+import PecooContent from '@/components/common/PecooContent'
+Vue.use(infiniteScroll)
+Vue.component('not-data', NotData)
+Vue.component('pecoo-header', PecooHeader)
+Vue.component('pecoo-footer', PecooFooter)
+Vue.component('pecoo-content', PecooContent)
+Vue.use(Lazyload)
+Vue.use(InfiniteScroll)
 Vue.use(router)
-Vue.use(VueLazyload)
 // 保留两位小数
 Vue.filter('keepTwoNum', function (value) {
   value = Number(value)

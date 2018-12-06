@@ -1,14 +1,17 @@
 <template>
-  <div>
-    <yd-navbar fixed height="44px" title="分类" fontsize="16px"></yd-navbar>
-    <div class="classify-box">
-      <router-link v-for="(ele, index) in classifyData" :key="ele.name" :to="{path: '/auctionList', query: {code: ele.code, name: ele.name}}" class="elem-class">
-        <div class="class-pic" :style="setPicMargin(index)">
-          <img v-lazy="ele.pic">
-        </div>
-        <p class="class-name" :style="setNameMargin(index)">{{ele.name}}</p>
-      </router-link>
-    </div>
+  <div class="classify">
+    <pecoo-header title="分类"></pecoo-header>
+    <pecoo-content>
+      <div class="classify-box">
+        <router-link v-for="(ele, index) in classifyData" :key="ele.name" :to="'/auctionList?code=' + ele.code + '&name=' + ele.name" class="elem-class">
+          <div class="class-pic" :style="setPicMargin(index)">
+            <img v-lazy="ele.pic">
+          </div>
+          <p class="class-name" :style="setNameMargin(index)">{{ele.name}}</p>
+        </router-link>
+      </div>
+    </pecoo-content>
+    <pecoo-footer></pecoo-footer>
   </div>
 </template>
 <script>
@@ -55,10 +58,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .classify-box{
-  @include wh($w: 100%, $h: 100%);
+  @include wh($w: 100%);
   background: $bg;
-  margin: 44px 0;
   @include overflow;
+  margin: 44px 0 54px;
   .elem-class{
     @include wh($w: 50%);
     float: left;

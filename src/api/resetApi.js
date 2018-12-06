@@ -387,6 +387,10 @@ export function cateScreen (data) {
 export function queryGoodsByKind (data) {
   return requestControl(Auction.queryGoodsByKind, data, bus)
 }
+// 拍品筛选的接口
+export function getFilter (data) {
+  return requestControl(Auction.getFilter, data, bus)
+}
 
 // 获取父节点下的分类列表（包含二、三级）
 export function parentList (data) {

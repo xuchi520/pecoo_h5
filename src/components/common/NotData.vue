@@ -4,7 +4,7 @@
       <img src="../../assets/images/common/not_data.png" alt="">
     </div>
     <div class="not-data-content">{{content}}</div>
-    <div v-if="isGoPage" class="go-page" @click="clickhandler">随便看看</div>
+    <div v-if="isGoPage" class="go-page" @click="clickHandler">随便看看</div>
   </div>
 </template>
 <script>
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     // 点击跳转那里
-    clickhandler () {
+    clickHandler () {
       this.$emit('jumping')
     }
   }

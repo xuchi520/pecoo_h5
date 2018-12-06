@@ -186,6 +186,8 @@ Classify.firstCate = {url: apis + '/category/list/first', method: 'post'}
 Classify.cateScreen = {url: apis + '/category/list/second/parent', method: 'post'}
 // 根据分类查询拍品
 Auction.queryGoodsByKind = {url: apis + '/auctiongoods/list', method: 'post'}
+// 拍品的筛选接口
+Auction.getFilter = {url: apis + '/auctiongoods/list/getfilterlist', method: 'post'}
 
 // 详情页数据展示
 Detail.queryGoodsMess = {url: apis + '/auctiongoods/detail', method: 'post'}

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/modules/home/Index'
 import Home from '@/modules/home/Home'
 import Classify from '@/modules/classify/Classify'
 import AuctionList from '@/modules/classify/AuctionList'
@@ -21,27 +20,28 @@ export default new Router({
       redirect: '/index'
     },
     {
-      path: '/',
+      path: '/index',
+      name: 'home',
       component: Home,
-      children: [
-        {
-          path: 'index',
-          name: 'index',
-          component: Index,
-          meta: { title: '拍库' }
-        },
-        {
-          path: 'classify',
-          name: 'classify',
-          component: Classify,
-          meta: { title: '分类' }
-        },
-        {
-          path: 'auctionList',
-          name: 'auctionList',
-          component: AuctionList
-        }
-      ]
+      meta: { title: '拍库' }
+    },
+    {
+      path: '/classify',
+      name: 'classify',
+      component: Classify,
+      meta: { title: '分类' }
+    },
+    {
+      path: '/auctionList',
+      name: 'auction-list',
+      component: AuctionList,
+      meta: { title: '商品列表' }
+    },
+    {
+      path: '*',
+      component: {
+        template: `<div>404</div>`
+      }
     }
   ]
 })
