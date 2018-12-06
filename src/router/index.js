@@ -35,14 +35,7 @@ export default new Router({
       path: '/index',
       name: 'home',
       component: Home,
-      children: [
-        {
-          path: 'classify',
-          name: 'classify',
-          component: Classify,
-          meta: { title: '分类' }
-        }
-      ]
+      meta: { title: '首页' }
     },
     {
       path: '/',
