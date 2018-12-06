@@ -2,7 +2,7 @@
     <div class="footer">
         <yd-tabbar fixed active-color="#010101">
             <yd-tabbar-item :active="item.link == routerPath?true:false" :title="item.title" :link="item.link" v-for="(item,index) in footerData" :key="index">
-                <img slot="icon" style="height: 25px;" :src="item.imgUrl">
+              <img slot="icon" style="height: 25px;" :src="item.imgUrl">
             </yd-tabbar-item>
         </yd-tabbar>
     </div>
