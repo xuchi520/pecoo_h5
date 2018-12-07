@@ -1,5 +1,5 @@
 <template>
-  <ul class="list">
+  <ul class="list" :style="changeMargin()">
     <li v-for="(item, index) in listData" :key="item.id" class="item-list">
       <div class="pic" :style="setMargin(index)">
         <img v-lazy="item.thumbnailUrl" class="pro-img">
@@ -17,9 +17,22 @@ export default {
     listData: {
       type: Array,
       default: () => []
+    },
+    isLoad: {
+      type: Boolean,
+      default: false
+    },
+    marginTop: {
+      type: String,
+      default: ''
     }
   },
   methods: {
+    changeMargin () {
+      let style = {}
+      style.marginTop = this.marginTop
+      return style
+    },
     setMargin (index) {
       let style = {}
       if (index % 2) {
@@ -29,6 +42,9 @@ export default {
       }
       return style
     }
+  },
+  mounted () {
+    console.log(this.marginTop)
   }
 }
 </script>

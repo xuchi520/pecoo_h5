@@ -29,21 +29,25 @@
       </template>
     </ol>
     <div class="mask" v-show="selectedIndex != null" @click="cancalMask"></div>
+    <pecoo-loading v-if="!isInit"></pecoo-loading>
     <div class="scroll-list">
       <div v-infinite-scroll="loadMore" :infinite-scroll-disabled="isLoad" infinite-scroll-distance="10" class="load-list">
-        <!-- <list :listData="listData"></list> -->
-        <pecoo-loading></pecoo-loading>
-        <pull-up-loading v-show="isLoad"></pull-up-loading>
-        <not-data v-if="!listData.length && !totalCount"></not-data>
+        <list :listData="listData" :isLoad="isLoad" :marginTop="'103px'"></list>
+        <loading-words :isLoad="isLoading()" :isComplete="isComplete()"></loading-words>
+        <not-data v-if="isInit && !listData.length && !totalCount"></not-data>
       </div>
+    </div>
+    <div class="paging">
+      <div class="paging-number"></div>
+      <div class="back-top"></div>
     </div>
   </div>
 </template>
 <script>
 import { cateScreen, queryGoodsByKind } from '@/api/resetApi.js'
 import list from '@/components/auction/List'
-import pullUpLoading from '@/components/common/PullUpLoading'
 import screen from '@/components/auction/Screen'
+import loadingWords from '@/components/common/LoadingWords'
 export default {
   name: 'auction-list',
   data () {
@@ -51,11 +55,12 @@ export default {
       title: '商品列表',
       code: '', // 当前分类
       sort: '', // 时间和价格的条件
-      pageNum: 0,
+      pageNum: 1,
       pageSize: 20,
       pages: 0, // 总页数
-      isLoad: false,
+      isLoad: false, // 是否继续加载
       showScreen: false, // 是否显示筛选
+      isInit: false, // 正在载入...
       sortList: [
         {
           name: '价格',
@@ -103,7 +108,7 @@ export default {
     }
   },
   components: {
-    list, pullUpLoading, screen
+    list, screen, loadingWords
   },
   methods: {
     // 获取分类
@@ -136,15 +141,17 @@ export default {
         this.totalCount = obj.totalCount
         this.pages = obj.pages
         this.isLoad = false
+        this.isInit = true
       } catch (err) {
         console.log(err)
       }
     },
     // 加载更多
     loadMore () {
-      this.isLoad = true
+      if (this.listData.length >= this.totalCount) return
       this.pageNum++
-      this.getListData(this.code, this.pageNum)
+      this.isLoad = true
+      this.getListData(this.code, this.pageNum, this.sort, this.priceUnit, this.priceStart, this.priceEnd, this.startTime)
     },
     // 当前选中头部条件
     selectSort (index) {
@@ -179,6 +186,7 @@ export default {
           break
       }
       this.selectedIndex = null
+      this.isInit = false
       this.pageNum = 1
       this.listData = []
       this.getListData(this.code, 1, this.sort, this.priceUnit, this.priceStart, this.priceEnd, this.startTime)
@@ -195,21 +203,36 @@ export default {
       this.startTime = params.startTime
       this.pageNum = 1
       this.listData = []
+      this.isInit = false
       this.showScreen = false
       this.getListData(this.code, 1, this.sort, this.priceUnit, this.priceStart, this.priceEnd, this.startTime)
     },
     // 显示筛选
     show () {
       this.showScreen = !this.showScreen
+    },
+    // 显示正在加载中
+    isLoading () {
+      if (this.isInit && this.isLoad) {
+        return true
+      } else {
+        return false
+      }
+    },
+    // 加载完成
+    isComplete () {
+      if (this.isInit && this.listData.length && this.listData.length >= this.totalCount) {
+        return true
+      } else {
+        return false
+      }
     }
-  },
-  beforeCreate () {
-
   },
   created () {
     const params = this.$route.query
     this.title = params.name
     this.code = params.code
+    this.getListData(this.code, 1)
   }
 }
 </script>
@@ -287,11 +310,16 @@ export default {
   }
 }
 .scroll-list{
-  @include overflow;
   @include wh($w: 100%, $h: 100%);
   .load-list{
-    @include wh($w: 100%, $h: 100%);
-    margin-top: 103px;
+    @include overflow;
   }
+}
+.paging{
+  @include wh($w: 1.24rem, $h: 1.24rem);
+  background: url(../../assets/images/common/merge.png) -327px 53px;
+  position: fixed;
+  bottom:0.8rem;
+  right: 0.6rem;
 }
 </style>
