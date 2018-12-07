@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/modules/home/Home'
+// import Home from '@/modules/home/Home'
+import Index from '@/modules/home/Index'
 import Classify from '@/modules/classify/Classify'
 import Luxury from '@/modules/luxury/Luxury'
 import LuxuryIndex from '@/modules/luxury/LuxuryIndex'
@@ -16,9 +17,11 @@ import Mine from '@/modules/mine/Mine'
 import LuxuryConfirm from '@/modules/luxury/luxuryConfirm/LuxuryConfirm'
 import AuctionList from '@/modules/classify/AuctionList'
 import Login from '@/modules/login/Login'
+
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   // 更改路由回到顶部
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
@@ -34,8 +37,8 @@ export default new Router({
     },
     {
       path: '/index',
-      name: 'home',
-      component: Home,
+      name: 'index',
+      component: Index,
       meta: { title: '首页' }
     },
     {

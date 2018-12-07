@@ -47,7 +47,7 @@ span {
     padding: 0;
     margin: 0;
     font-family: "PingFang-SC-Regular", "Microsoft YaHei", "微软雅黑", tahoma, arial, simhei, Verdana, SimSun;
-    font-size: 14px;
+    font-size: 0.3rem;
 }
 
 strong,
@@ -216,4 +216,53 @@ input {
 /* 底部 */
 .footer .a{
 
+}
+/*YD公共样式更改*/
+.form .yd-cell-item{
+    padding-left:  0;
+    border-bottom: 1px solid #eee;
+}
+.form .yd-cell-right{
+    padding-right: 0;
+    color: #333;
+    font-size: 0.3rem;
+}
+.form .yd-cell-right input{
+    font-size: 0.3rem;
+}
+.form .yd-btn{
+    height: 0.8rem;
+    border-radius: 0;
+    font-size: 0.3rem;
+    min-width: 1rem;
+}
+.form .yd-btn-warning:not(.yd-btn-loading){
+    background: #1b1b1b;
+}
+.form .yd-btn-disabled{
+    background-color: #fff;
+    color: #E83E3E;
+}
+.form .yd-btn-block{
+    height: 0.88rem;
+    border-radius: 0;
+}
+.form .yd-btn-primary:not(.yd-btn-loading){
+    background: #1b1b1b;
+}
+.form .yd-cell-item:not(:last-child):after{
+    height: 0;
+}
+.login .form .yd-cell-item{
+    margin-top: 0.3rem;
+}
+.form .submit{
+    border: none;
+    display: block;
+    width: 100%;
+    height: 0.88rem;
+    background: #1b1b1b;
+    color: #fff;
+    text-align: center;
+    margin-top: 0.5rem;
 }

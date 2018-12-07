@@ -46,7 +46,7 @@ const getters = {
   userInfo: state => state.userInfo
 }
 const state = {
-  source: 'PC',
+  source: 'H5',
   userInfo: userInfo,
   tokenId: tokenId,
   userId: userId,
