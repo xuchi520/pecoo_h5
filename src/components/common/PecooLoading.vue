@@ -21,7 +21,7 @@ export default {
   position: relative;
   img{
     position: absolute;
-    top: 25%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
   }
@@ -29,7 +29,7 @@ export default {
     @include wh($w: 100%, $h: 0.4rem);
     @include line($line: 0.4rem);
     position: absolute;
-    top: 30%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%,-50%);
   }

@@ -9,25 +9,15 @@
     </div>
     <div class="order-outer">
       <div class="order">
-        <p class="title"><span class="my-order">我的订单</span><span class="order-all">查看全部</span></p>
-        <div class="order-item">
-          <div class="item">
-            <img src="../../assets/logo.png" alt="">
-            <p>待付款</p>
-          </div>
-          <div class="item">
-            <img src="../../assets/logo.png" alt="">
-            <p>待付款</p>
-          </div>
-          <div class="item">
-            <img src="../../assets/logo.png" alt="">
-            <p>待付款</p>
-          </div>
-          <div class="item">
-            <img src="../../assets/logo.png" alt="">
-            <p>待付款</p>
-          </div>
-        </div>
+        <router-link to="/order" class="title">
+          <span class="my-order">我的订单</span><span class="order-all">查看全部</span>
+        </router-link>
+        <ul class="order-status">
+          <li v-for="item in orderStatus" :key="item.name">
+            <img src="../../assets/logo.png" alt="" width="35px" height="35px">
+            <router-link :to="item.url">{{item.name}}</router-link>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="hr"></div>
@@ -84,7 +74,29 @@
 
 <script>
 export default {
-  name: 'Mine'
+  name: 'Mine',
+  data () {
+    return {
+      orderStatus: [
+        {
+          url: '',
+          name: '待付款'
+        },
+        {
+          url: '',
+          name: '待发货'
+        },
+        {
+          url: '',
+          name: '待收货'
+        },
+        {
+          url: '',
+          name: '已完成'
+        }
+      ]
+    }
+  }
 }
 </script>
 
@@ -145,15 +157,10 @@ export default {
             line-height: .8rem;
           }
         }
-        .order-item{
-          padding: 0.35rem 0rem;
-          display: flex;
-          .item{
-            flex: 1;
-            text-align: center;
-            img{
-              width: .43rem;
-            }
+        .order-status{
+          @include justify;
+          li{
+            @include column;
           }
         }
       }
