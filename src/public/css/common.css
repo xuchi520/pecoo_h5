@@ -95,6 +95,11 @@ textarea,
 select {
     *font-size: 100%
 }
+input{
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
 .fixed-top{
     margin-top: 44px;
 }
@@ -105,6 +110,10 @@ select {
 .back-arrow{
     width: 20px;
     height: 18px;
+}
+.back{
+    display: flex;
+    align-items:center;
 }
 /* 搜索的icon */
 .search-icon{

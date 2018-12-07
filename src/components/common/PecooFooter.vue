@@ -1,8 +1,8 @@
 <template>
   <ul class="footer">
     <li v-for="(item, index) in footerData" :key="index" class="item-footer" @click="goPages(index)">
-      <img :src="index === selected ? item.selected : item.default" alt="">
-      <span :class="index === selected ? 'selected' : ''">{{item.title}}</span>
+      <img :src="item.link === routerPath ? item.selected : item.default" alt="">
+      <span :class="item.link === routerPath  ? 'selected' : ''">{{item.title}}</span>
     </li>
   </ul>
 </template>
@@ -11,7 +11,6 @@ export default {
   name: 'pecoo-footer',
   data () {
     return {
-      selected: 0,
       footerData: [
         {
           title: '首页',
@@ -46,9 +45,13 @@ export default {
       ]
     }
   },
+  computed: {
+    routerPath () {
+      return this.$route.path
+    }
+  },
   methods: {
     goPages (index) {
-      this.selected = index
       this.$router.push(this.footerData[index].link)
     }
   }
@@ -61,13 +64,13 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
-  @include wh($w: 100%, $h: 54px);
+  @include wh($w: 100%, $h: 1.08rem);
   @include bgCol($col:#666666);
   .item-footer{
     @include column;
     @include w($w: 20%);
     img{
-      @include wh($w: 26px, $h: 26px);
+      @include wh($w: 0.52rem, $h: 0.52rem);
     }
     .selected{
       color: #333333;
