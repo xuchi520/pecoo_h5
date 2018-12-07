@@ -6,12 +6,14 @@ import router from './router'
 import store from './store/store'
 import 'vue-ydui/dist/ydui.rem.css'
 import 'vue-ydui/dist/ydui.base.css'
+import YDUI from 'vue-ydui'
 // 全局公共组件
 import infiniteScroll from 'vue-infinite-scroll'
 import NotData from '@/components/common/NotData'
 import PecooHeader from '@/components/common/PecooHeader'
 import PecooFooter from '@/components/common/PecooFooter'
 import PecooContent from '@/components/common/PecooContent'
+Vue.use(YDUI)
 Vue.use(infiniteScroll)
 Vue.component('not-data', NotData)
 Vue.component('pecoo-header', PecooHeader)

@@ -15,6 +15,7 @@ import LuxuryList from '@/modules/luxury/luxuryList/LuxuryList'
 import Mine from '@/modules/mine/Mine'
 import LuxuryConfirm from '@/modules/luxury/luxuryConfirm/LuxuryConfirm'
 import AuctionList from '@/modules/classify/AuctionList'
+import Login from '@/modules/login/Login'
 Vue.use(Router)
 
 export default new Router({
@@ -120,6 +121,12 @@ export default new Router({
       name: 'auction-list',
       component: AuctionList,
       meta: { title: '商品列表' }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: { title: '登录' }
     },
     {
       path: '*',
