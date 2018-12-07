@@ -275,3 +275,12 @@ input {
     text-align: center;
     margin-top: 0.5rem;
 }
+/***首页UI修改**/
+.index .yd-slider-pagination-item{
+    width: 0.24rem;
+    height: 0.06rem;
+    border-radius: 0.03rem;
+}
+.index .yd-slider-pagination-item-active{
+    background-color: #fff!important;
+}
