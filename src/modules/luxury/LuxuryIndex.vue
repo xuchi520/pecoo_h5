@@ -53,7 +53,7 @@
 import Vue from 'vue'
 import vueSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
-import pecooFooter from '@/components/common/Footer'
+import pecooFooter from '@/components/common/PecooFooter'
 import { luxuryBanner, luxuryGoodsnew, luxuryStory } from '../../api/resetApi'
 Vue.use(vueSwiper)
 export default {
@@ -230,6 +230,8 @@ export default {
             width: 2rem;
             height: 2rem;
             margin: 0 auto;
+            border: 1px solid #f1f1f1;
+            padding: 0 .2rem;
           }
         }
         .shop-msg{

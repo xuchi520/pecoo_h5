@@ -6,7 +6,7 @@
     </div>
 </template>
 <script>
-import pecooFooter from '@/components/common/Footer'
+import pecooFooter from '../../components/common/PecooFooter'
 export default {
   data () {
     return {

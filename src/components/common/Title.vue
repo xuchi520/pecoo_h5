@@ -1,8 +1,8 @@
 <template>
   <div class="title">
     <img @click="lClick()" :src="leftImg" alt>
-    <slot></slot>
-    <img @click="rClick()" src="../../assets/images/luxury/search_icon.png" alt>
+    <slot class="titleName"></slot>
+    <img src="#">
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 export default {
   data () {
     return {
-      leftImg: require('../../assets/images/luxury/search_icon.png')
+      leftImg: require('../../assets/images/luxury/return.png')
     }
   },
   computed: {
@@ -18,9 +18,6 @@ export default {
   methods: {
     lClick () {
       this.$emit('leftClick')
-    },
-    rClick () {
-      this.$emit('rightClick')
     }
   }
 }

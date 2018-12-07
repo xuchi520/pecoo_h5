@@ -1,7 +1,7 @@
 <template>
   <div class="brand">
     <div class="title">
-      <img src="../../../assets/images/luxury/search_icon.png" alt>
+      <img src="../../../assets/images/luxury/return.png" @click="toBack" alt>
       <span>品牌A-Z</span>
       <router-link to="/luxurysearchbrand">
         <img src="../../../assets/images/luxury/search_icon.png" alt>
@@ -11,7 +11,9 @@
       <div class="brand-item" v-for="(brand, index) in brandList" :key="index">
         <div class="letter-title" :id="titleList[index].title">{{titleList[index].title}}</div>
         <ul class="letter-item">
+          <router-link to="/luxuryList">
           <li v-for="item in brand.brand" v-bind:key="item.name">{{item.name}}</li>
+          </router-link>
         </ul>
       </div>
     </div>
@@ -60,6 +62,9 @@ export default {
       let eleTop = document.getElementById(e).offsetTop
       let eleHeight = document.getElementById(e).clientHeight
       document.documentElement.scrollTo(0, eleTop - eleHeight)
+    },
+    toBack () {
+      this.$router.go(-1)
     }
   },
   mounted () {

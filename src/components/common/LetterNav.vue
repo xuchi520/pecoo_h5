@@ -97,6 +97,7 @@ export default {
       font-size: 0.14rem;
       box-sizing: border-box;
       padding: 0.04rem 0.12rem;
+      color: #333;
     }
   }
   .tip-mask {
