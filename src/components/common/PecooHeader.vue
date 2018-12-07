@@ -21,7 +21,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header{
-  @include wh($w: 100%, $h: 44px);
+  @include wh($w: 100%, $h: 0.88rem);
   @include bgCol($col:#333333, $bg: #FFFFFF);
   @include fixed;
   @include font;
@@ -30,7 +30,7 @@ export default {
   justify-content: space-between;
   z-index: 99;
   .header-box{
-    @include wh($w: 100%, $h: 44px);
+    @include wh($w: 100%, $h: 0.88rem);
     display: flex;
     align-items: center;
     li{
@@ -47,10 +47,10 @@ export default {
     }
     .header-right{
       justify-content: flex-end;
-      padding-right: 10px;
+      padding-right: 0.2rem;
     }
     .header-left{
-      padding-left: 10px;
+      padding-left: 0.2rem;
       justify-content: flex-start;
     }
   }

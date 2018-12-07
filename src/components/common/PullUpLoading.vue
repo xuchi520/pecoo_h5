@@ -14,7 +14,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .loading {
-  @include wh($w: 100%, $h: 30px);
-  @include line($line: 30px);
+  @include wh($w: 100%, $h: 0.6rem);
+  @include line($line: 0.6rem);
 }
 </style>

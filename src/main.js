@@ -7,18 +7,27 @@ import store from './store/store'
 import 'vue-ydui/dist/ydui.rem.css'
 import 'vue-ydui/dist/ydui.base.css'
 import YDUI from 'vue-ydui'
+import VueLazyload from 'vue-lazyload'
 // 全局公共组件
 import infiniteScroll from 'vue-infinite-scroll'
 import NotData from '@/components/common/NotData'
 import PecooHeader from '@/components/common/PecooHeader'
 import PecooFooter from '@/components/common/PecooFooter'
 import PecooContent from '@/components/common/PecooContent'
+import PecooLoading from '@/components/common/PecooLoading'
 Vue.use(YDUI)
 Vue.use(infiniteScroll)
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: 'https://static.pecoo.com/images/common/default_medium.png',
+  loading: 'https://static.pecoo.com/images/common/default_medium.png',
+  attempt: 1
+})
 Vue.component('not-data', NotData)
 Vue.component('pecoo-header', PecooHeader)
 Vue.component('pecoo-footer', PecooFooter)
 Vue.component('pecoo-content', PecooContent)
+Vue.component('pecoo-loading', PecooLoading)
 Vue.use(router)
 // 保留两位小数
 Vue.filter('keepTwoNum', function (value) {
