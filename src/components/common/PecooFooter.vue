@@ -64,13 +64,13 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
-  @include wh($w: 100%, $h: 54px);
+  @include wh($w: 100%, $h: 1.08rem);
   @include bgCol($col:#666666);
   .item-footer{
     @include column;
     @include w($w: 20%);
     img{
-      @include wh($w: 26px, $h: 26px);
+      @include wh($w: 0.52rem, $h: 0.52rem);
     }
     .selected{
       color: #333333;

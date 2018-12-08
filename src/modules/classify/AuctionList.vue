@@ -1,24 +1,24 @@
 <template>
-  <div>
+  <div class="list">
     <pecoo-header :title="title">
       <a href="javascript:window.history.go(-1)" slot="left" class="back">
         <img src="../../assets/images/common/return.png" alt="" class="back-arrow">
       </a>
-      <a href="javascript:window.history.go(-1)" slot="right">
-        注册
-      </a>
+      <div slot="right" class="search-pic"></div>
     </pecoo-header>
     <ul class="condition">
       <li v-for="(item, index) in sortList" :key="item.name" @click="selectSort(index)">
         <span :class="selectedIndex == index ? 'selected-sort': ''">{{item.name}}</span>
         <i :class="selectedIndex == index ? 'selected-arrow' : 'arrow'"></i>
       </li>
-      <li class="screen">
+      <li class="screen" @click="show">
         <b class="broken">|</b>
         <span>筛选</span>
       </li>
     </ul>
-    <!-- <Screen v-on:transmit-params="receiveParams"></Screen> -->
+    <yd-popup v-model="showScreen" position="right" width="85%" height="100%">
+      <screen v-on:transmit-params="receiveParams" v-on:hide-screen="show"></screen>
+    </yd-popup>
     <ol class="show-conditions" v-show="selectedIndex != null">
       <img width="30px" height="30px" v-if="!currentConditions.length" src="../../assets/images/common/loading.gif" alt="">
       <template v-else>
@@ -29,18 +29,25 @@
       </template>
     </ol>
     <div class="mask" v-show="selectedIndex != null" @click="cancalMask"></div>
-    <div class="scroll-list" v-infinite-scroll="loadMore" :infinite-scroll-disabled="isLoad" infinite-scroll-distance="10">
-      <List :listData="listData"></List>
-      <Loading v-show="isLoad"></Loading>
-      <not-data v-if="!listData.length && !totalCount"></not-data>
+    <pecoo-loading v-if="!isInit"></pecoo-loading>
+    <div class="scroll-list">
+      <div v-infinite-scroll="loadMore" :infinite-scroll-disabled="isLoad" infinite-scroll-distance="10" class="load-list">
+        <list :listData="listData" :isLoad="isLoad" :marginTop="'103px'"></list>
+        <loading-words :isLoad="isLoading()" :isComplete="isComplete()"></loading-words>
+        <not-data v-if="isInit && !listData.length && !totalCount"></not-data>
+      </div>
+    </div>
+    <div class="paging">
+      <div class="paging-number"></div>
+      <div class="back-top"></div>
     </div>
   </div>
 </template>
 <script>
 import { cateScreen, queryGoodsByKind } from '@/api/resetApi.js'
-import List from '@/components/auction/List'
-import Loading from '@/components/common/Loading'
-import Screen from '@/components/auction/Screen'
+import list from '@/components/auction/List'
+import screen from '@/components/auction/Screen'
+import loadingWords from '@/components/common/LoadingWords'
 export default {
   name: 'auction-list',
   data () {
@@ -48,10 +55,12 @@ export default {
       title: '商品列表',
       code: '', // 当前分类
       sort: '', // 时间和价格的条件
-      pageNum: 0,
+      pageNum: 1,
       pageSize: 20,
       pages: 0, // 总页数
-      isLoad: false,
+      isLoad: false, // 是否继续加载
+      showScreen: false, // 是否显示筛选
+      isInit: false, // 正在载入...
       sortList: [
         {
           name: '价格',
@@ -99,7 +108,7 @@ export default {
     }
   },
   components: {
-    List, Loading, Screen
+    list, screen, loadingWords
   },
   methods: {
     // 获取分类
@@ -132,15 +141,17 @@ export default {
         this.totalCount = obj.totalCount
         this.pages = obj.pages
         this.isLoad = false
+        this.isInit = true
       } catch (err) {
         console.log(err)
       }
     },
     // 加载更多
     loadMore () {
-      this.isLoad = true
+      if (this.listData.length >= this.totalCount) return
       this.pageNum++
-      this.getListData(this.code, this.pageNum)
+      this.isLoad = true
+      this.getListData(this.code, this.pageNum, this.sort, this.priceUnit, this.priceStart, this.priceEnd, this.startTime)
     },
     // 当前选中头部条件
     selectSort (index) {
@@ -175,6 +186,7 @@ export default {
           break
       }
       this.selectedIndex = null
+      this.isInit = false
       this.pageNum = 1
       this.listData = []
       this.getListData(this.code, 1, this.sort, this.priceUnit, this.priceStart, this.priceEnd, this.startTime)
@@ -191,18 +203,47 @@ export default {
       this.startTime = params.startTime
       this.pageNum = 1
       this.listData = []
-      console.log(this.listData.length)
+      this.isInit = false
+      this.showScreen = false
       this.getListData(this.code, 1, this.sort, this.priceUnit, this.priceStart, this.priceEnd, this.startTime)
+    },
+    // 显示筛选
+    show () {
+      this.showScreen = !this.showScreen
+    },
+    // 显示正在加载中
+    isLoading () {
+      if (this.isInit && this.isLoad) {
+        return true
+      } else {
+        return false
+      }
+    },
+    // 加载完成
+    isComplete () {
+      if (this.isInit && this.listData.length && this.listData.length >= this.totalCount) {
+        return true
+      } else {
+        return false
+      }
     }
   },
   created () {
     const params = this.$route.query
     this.title = params.name
     this.code = params.code
+    this.getListData(this.code, 1)
   }
 }
 </script>
 <style scoped lang="scss">
+.list{
+  @include wh($w: 100%, $h: 100%);
+}
+.search-pic{
+  @include wh($w: 100%, $h: 100%);
+  background: url(../../assets/images/common/merge.png) -263px 116px;
+}
 .condition{
   @include font($size: 13px, $family: 'PingFang-SC-Medium');
   @include wh($w: 100%, $h: 37px);
@@ -215,6 +256,12 @@ export default {
     float: left;
     @include wh($w: 25%, $h: 37px);
     @include line($line: 37px);
+    @include justify($type: center);
+    span{
+      display: inline-block;
+      max-width: 1.5rem;
+      @include oneDisplay;
+    }
     .selected-arrow{
       display: inline-block;
       @include wh($w: 12px, $h: 8px);
@@ -242,7 +289,7 @@ export default {
 }
 .show-conditions{
   @include w($w: 100%);
-  @include fixed($left: 0, $top: 83px);
+  @include fixed($left: 0, $top: 81px);
   min-height: 100px;
   max-height: 300px;
   background: #FFFFFF;
@@ -263,7 +310,16 @@ export default {
   }
 }
 .scroll-list{
-  @include overflow;
-  margin-top: 103px;
+  @include wh($w: 100%, $h: 100%);
+  .load-list{
+    @include overflow;
+  }
+}
+.paging{
+  @include wh($w: 1.24rem, $h: 1.24rem);
+  background: url(../../assets/images/common/merge.png) -327px 53px;
+  position: fixed;
+  bottom:0.8rem;
+  right: 0.6rem;
 }
 </style>

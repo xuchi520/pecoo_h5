@@ -61,18 +61,18 @@ export default {
   @include wh($w: 100%);
   background: $bg;
   @include overflow;
-  margin: 44px 0 54px;
+  margin: 0.88rem 0 1.08rem;
   .elem-class{
     @include wh($w: 50%);
     float: left;
     .class-pic{
-      max-height: 175px;
+      max-height: 3.5rem;
       img{
         @include maxWH($w: 100%, $h: 100%);
       }
     }
     .class-name{
-      height: 45px;
+      height: 0.9rem;
       background: #FFFFFF;
       @include justify($type: center);
       @include font($family: 'PingFang-SC-Medium');

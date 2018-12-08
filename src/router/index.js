@@ -16,6 +16,7 @@ import Mine from '@/modules/mine/Mine'
 import LuxuryConfirm from '@/modules/luxury/luxuryConfirm/LuxuryConfirm'
 import AuctionList from '@/modules/classify/AuctionList'
 import Login from '@/modules/login/Login'
+import Order from '@/modules/order/Order'
 Vue.use(Router)
 
 export default new Router({
@@ -127,6 +128,12 @@ export default new Router({
       name: 'login',
       component: Login,
       meta: { title: '登录' }
+    },
+    {
+      path: '/order',
+      name: 'order',
+      component: Order,
+      meta: { title: '我的订单' }
     },
     {
       path: '*',

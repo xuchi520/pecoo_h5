@@ -41,34 +41,6 @@ axios.interceptors.response.use(
     // return { data: error }  // 返回一个空对象，主要是防止控制台报错
   }
 )
-// const poster = axios.create({
-//   headers: {
-//     'Content-Type': 'application/x-www-form-urlencoded',
-//     'accessToken': accessToken || '',
-//     'sourceMode': 'PC',
-//     'version': 'V1.0.0',
-//     'clientTime': new Date().getTime()
-//   },
-//   transformRequest: [
-//     function (data) {
-//       return qs.stringify(data, { arrayFormat: 'repeat' })
-//     }
-//   ]
-// })
-// const posterJson = axios.create({
-//   headers: {
-//     'Content-Type': 'application/json',
-//     'accessToken': accessToken || '',
-//     'sourceMode': 'PC',
-//     'version': 'V1.0.0',
-//     'clientTime': new Date().getTime()
-//   },
-//   transformRequest: [
-//     function (data) {
-//       return data
-//     }
-//   ]
-// })
 const errorMsg = {
   401: '用户尚未登录或者用户身份已过期，即将跳转到登录页面',
   403: '当前用户权限无法执行操作',
@@ -103,42 +75,39 @@ async function errorResponse (res, reject, bus) {
       })
       break
     case 10001:
-      bus.$message.error(errMsg[res.data.code])
+      bus.$dialog.toast({mes: errMsg[res.data.code]})
       reject(res)
       break
     case 40000:
-      bus.$message.error(errMsg[res.data.code])
+      bus.$dialog.toast({mes: errMsg[res.data.code]})
       reject(res)
       break
     case 40001:
-      bus.$message.error(errMsg[res.data.code])
+      bus.$dialog.toast({mes: errMsg[res.data.code]})
       reject(res)
       break
     case 40002:
-      bus.$message.error(errMsg[res.data.code])
+      bus.$dialog.toast({mes: errMsg[res.data.code]})
       reject(res)
       break
     case 40004:
-      bus.$message.error(errMsg[res.data.code])
+      bus.$dialog.toast({mes: errMsg[res.data.code]})
       reject(res)
       break
     case 40005:
-      bus.$message.error(errMsg[res.data.code])
+      bus.$dialog.toast({mes: errMsg[res.data.code]})
       reject(res)
       break
     case 90000:
-      bus.$message.error(errMsg[res.data.code])
+      bus.$dialog.toast({mes: errMsg[res.data.code]})
       reject(res)
       break
     default:
-      bus.$message.error(res.data.msg)
+      bus.$dialog.toast({mes: res.data.msg})
       reject(res)
       break
   }
 }
-// function sleep (ms) { // 搭配async      await sleep(时间)
-//   return new Promise((resolve, reject) => setTimeout(resolve, ms))
-// }
 
 // 请求发生错误
 async function failedRequest (err, reject, bus) {
@@ -146,30 +115,30 @@ async function failedRequest (err, reject, bus) {
   if (err.response) {
     switch (err.response.status) {
       case 403:
-        bus.$message.error(errMsg[err.response.status])
+        bus.$dialog.toast({mes: errMsg[err.response.status]})
         reject(err)
         break
       case 404:
-        bus.$message.error(errMsg[err.response.status])
+        bus.$dialog.toast({mes: errMsg[err.response.status]})
         reject(err)
         break
       case 500:
-        bus.$message.error(errMsg[err.response.status])
+        bus.$dialog.toast({mes: errMsg[err.response.status]})
         reject(err)
         break
       case 504:
-        bus.$message.error(errMsg[err.response.status])
-        // bus.$message.error({message: errMsg[err.response.status], duration: 0})
+        bus.$dialog.toast({mes: errMsg[err.response.status]})
+        // bus.$dialog.toast({message: errMsg[err.response.status], duration: 0})
         reject(err)
         break
       default:
-        bus.$message.error(err.message)
+        bus.$dialog.toast({mes: err.message})
         reject(err)
         break
     }
   } else {
     if (err.code === 'ECONNABORTED') {
-      bus.$message.error(errMsg['timeout'])
+      bus.$dialog.toast({mes: errMsg['timeout']})
     }
     reject(err)
   }
@@ -191,7 +160,7 @@ export function requestControl (api, data, bus, cb = () => {}) {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
               'accessToken': accessToken || '',
-              'sourceMode': 'PC',
+              'sourceMode': 'H5',
               'version': 'V1.0.0',
               'clientTime': new Date().getTime()
             },
@@ -201,12 +170,6 @@ export function requestControl (api, data, bus, cb = () => {}) {
               }
             ]
           })
-        // poster({
-        //   method: 'post',
-        //   url: api.url,
-        //   data: data,
-        //   timeout: 15 * 1000
-        // })
           .then(res => {
             resolve(res)
             if (res.data.code === '10000') {
@@ -230,7 +193,7 @@ export function requestControl (api, data, bus, cb = () => {}) {
             headers: {
               'Content-Type': 'application/json',
               'accessToken': accessToken || '',
-              'sourceMode': 'PC',
+              'sourceMode': 'H5',
               'version': 'V1.0.0',
               'clientTime': new Date().getTime()
             },
@@ -286,7 +249,7 @@ export function requestControl (api, data, bus, cb = () => {}) {
             headers: {
               'Content-Type': 'multipart/form-data',
               'accessToken': accessToken || '',
-              'sourceMode': 'PC',
+              'sourceMode': 'H5',
               'version': 'V1.0.0',
               'clientTime': new Date().getTime()
             },

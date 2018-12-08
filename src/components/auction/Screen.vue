@@ -1,7 +1,7 @@
 <template>
   <div class="screen-box">
     <div class="screen-head">
-      <img src="../../assets/images/common/return.png" alt=""   class="back-arrow">
+      <img src="../../assets/images/common/return.png" alt="" class="back-arrow" style="margin-left: 0.1rem" @click="hide">
       <div class="screen-title">筛选</div>
     </div>
     <div>
@@ -110,6 +110,10 @@ export default {
         startTime: this.timeIndex != null ? this.dateList[this.timeIndex].code : ''
       }
       this.$emit('transmit-params', params)
+    },
+    // 筛选的返回按钮
+    hide () {
+      this.$emit('hide-screen')
     }
   },
   mounted () {
@@ -119,10 +123,8 @@ export default {
 </script>
 <style lang='scss' scoped>
 .screen-box {
-  @include wh($w: 85%, $h: 100%);
-  position: fixed;
-  top: 0;
-  left: 15%;
+  @include wh($w: 100%, $h: 100%);
+  @include fixed;
   @include bgCol($col:#333333, $bg: #FFFFFF);
   z-index: 100;
   .screen-head{
@@ -179,16 +181,17 @@ export default {
       text-align: center;
     }
     input{
-      @include wh($w: 45%, $h: 35px);
+      @include wh($w: 48%, $h: 35px);
+      border: 1px solid #CCCCCC;
       text-align: center;
     }
   }
   .screen-btn{
-    @include wh($w: 85%, $h: 60px);
+    @include wh($w: 100%, $h: 60px);
     @include justify;
     position: fixed;
     bottom: 0;
-    left: 15%;
+    left: 0;
     background:rgba(255,255,255,1);
     box-shadow:0px -8px 13px 0px rgba(51,51,51,0.06);
     div{
@@ -197,9 +200,12 @@ export default {
       text-align: center;
       line-height: 40px;
       width: 45%;
-      margin: 0 1%;
+    }
+    .reset{
+      margin-left: 2%;
     }
     .confirm{
+      margin-right: 2%;
       @include bgCol ($col:#FFFFFF, $bg:#1B1B1B)
     }
   }
