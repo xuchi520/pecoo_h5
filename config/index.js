@@ -12,24 +12,24 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/apis': {
-        target: 'https://api.pecoo.com', //正式
-        //target: 'https://testapi.pecoo.com', //测试
+        // target: 'https://api.pecoo.com', //正式
+        target: 'https://testapi.pecoo.com', //测试
         changeOrigin: true,
         pathRewrite: {
           '^/apis': ''
         }
       },
       '/searchapi': {
-        target: 'https://search.pecoo.com', //搜索正式
-        //target: 'https://testsearch.pecoo.com', //搜索测试
+        // target: 'https://search.pecoo.com', //搜索正式
+        target: 'https://testsearch.pecoo.com', //搜索测试
         changeOrigin: true,
         pathRewrite: {
           '^/searchapi': ''
         }
       },
       '/recommendapi':{
-        target: 'https://recommend.pecoo.com', //奢侈品猜你喜欢
-        //target: 'https://testrecommend.pecoo.com', //奢侈品猜你喜欢
+        // target: 'https://recommend.pecoo.com', //奢侈品猜你喜欢
+        target: 'https://testrecommend.pecoo.com', //奢侈品猜你喜欢
         changeOrigin: true,
         pathRewrite: {
           '^/recommendapi': ''

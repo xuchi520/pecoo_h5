@@ -242,7 +242,7 @@ export default {
 }
 .search-pic{
   @include wh($w: 100%, $h: 100%);
-  background: url(../../assets/images/common/merge.png) -263px 116px;
+  background: url(../../assets/images/common/merge.png) -278px 116px;
 }
 .condition{
   @include font($size: 13px, $family: 'PingFang-SC-Medium');
@@ -265,7 +265,7 @@ export default {
     .selected-arrow{
       display: inline-block;
       @include wh($w: 12px, $h: 8px);
-      background: url(../../assets/images/common/merge.png) -364px 53px;
+      background: url(../../assets/images/common/merge.png) -267px 22px;
     }
     .selected-sort{
       color: $color1;
@@ -273,7 +273,7 @@ export default {
     .arrow{
       display: inline-block;
       @include wh($w: 12px, $h: 8px);
-      background: url(../../assets/images/common/merge.png) -327px 53px;
+      background: url(../../assets/images/common/merge.png) -231px 22px;
     }
   }
   .screen{
@@ -317,7 +317,7 @@ export default {
 }
 .paging{
   @include wh($w: 1.24rem, $h: 1.24rem);
-  background: url(../../assets/images/common/merge.png) -327px 53px;
+  background: url(../../assets/images/common/merge.png) -324px 65px;
   position: fixed;
   bottom:0.8rem;
   right: 0.6rem;
