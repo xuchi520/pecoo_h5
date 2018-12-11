@@ -30,9 +30,22 @@ Vue.component('pecoo-content', PecooContent)
 Vue.component('pecoo-loading', PecooLoading)
 Vue.use(router)
 // 保留两位小数
-Vue.filter('keepTwoNum', function (value) {
-  value = Number(value)
-  return value.toFixed(2)
+Vue.filter('keepTwoNum', function (num) {
+  var result = parseFloat(num)
+  if (isNaN(result)) {
+    return '0.00'
+  }
+  result = Math.round(num * 100) / 100
+  var x = result.toString()
+  var pos = x.indexOf('.')
+  if (pos < 0) {
+    pos = x.length
+    x += '.'
+  }
+  while (x.length <= pos + 2) {
+    x += '0'
+  }
+  return x
 })
 // 手机号加****显示
 Vue.filter('keepStar', function (value) {

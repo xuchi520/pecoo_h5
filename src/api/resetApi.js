@@ -31,8 +31,8 @@ export function updateCancelFrozenMoney (data) {
   return requestControl(Order.updateCancelFrozenMoney, data, bus)
 }
 // 拍品取消订单
-export function getorderCancel (data) {
-  return requestControl(Order.getorderCancel, data, bus)
+export function cancelAuctionOrder (data) {
+  return requestControl(Order.cancelAuctionOrder, data, bus)
 }
 // 拍品确认收货
 export function getorderReceive (data) {

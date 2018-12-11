@@ -29,11 +29,11 @@
       </template>
     </ol>
     <div class="mask" v-show="selectedIndex != null" @click="cancalMask"></div>
-    <pecoo-loading v-if="!isInit"></pecoo-loading>
     <div class="scroll-list">
+      <pecoo-loading v-if="!isInit"></pecoo-loading>
       <div v-infinite-scroll="loadMore" :infinite-scroll-disabled="isLoad" infinite-scroll-distance="10" class="load-list">
-        <list :listData="listData" :isLoad="isLoad" :marginTop="'103px'"></list>
-        <loading-words :isLoad="isLoading()" :isComplete="isComplete()"></loading-words>
+        <list v-if="isInit" :listData="listData" :isLoad="isLoad" :marginTop="'103px'"></list>
+        <loading-words v-if="isInit" :isLoad="isLoading()" :isComplete="isComplete()"></loading-words>
         <not-data v-if="isInit && !listData.length && !totalCount"></not-data>
       </div>
     </div>
@@ -213,19 +213,11 @@ export default {
     },
     // 显示正在加载中
     isLoading () {
-      if (this.isInit && this.isLoad) {
-        return true
-      } else {
-        return false
-      }
+      return this.isInit && this.isLoad
     },
     // 加载完成
     isComplete () {
-      if (this.isInit && this.listData.length && this.listData.length >= this.totalCount) {
-        return true
-      } else {
-        return false
-      }
+      return this.isInit && this.listData.length && this.listData.length >= this.totalCount
     }
   },
   created () {
