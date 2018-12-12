@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/modules/home/Home'
+import Index from '@/modules/home/Index'
 import Classify from '@/modules/classify/Classify'
 import Luxury from '@/modules/luxury/Luxury'
 import LuxuryIndex from '@/modules/luxury/LuxuryIndex'
@@ -41,8 +41,8 @@ export default new Router({
     },
     {
       path: '/index',
-      name: 'home',
-      component: Home,
+      name: 'index',
+      component: Index,
       meta: { title: '首页' }
     },
     {

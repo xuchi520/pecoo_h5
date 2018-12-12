@@ -226,9 +226,9 @@ Order.updateCancelFrozenMoney = {url: apis + '/useraccount/updateCancelFrozenMon
 // 推荐订单列表
 Order.queryChannelOrderList = {url: apis + '/order/queryChannelOrderList', method: 'post'}
 // 查询拍品订单列表
-Order.getorderlist = {url: apis + '/order/list', method: 'post'}
+Order.getAuctionOrderList = {url: apis + '/order/list', method: 'post'}
 // 拍品取消订单
-Order.getorderCancel = {url: apis + '/order/cancel', method: 'post'}
+Order.cancelAuctionOrder = {url: apis + '/order/cancel', method: 'post'}
 // 拍品确认收货
 Order.getorderReceive = {url: apis + '/order/receive', method: 'post'}
 // 查询拍品订单详情

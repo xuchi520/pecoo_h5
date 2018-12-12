@@ -23,16 +23,16 @@ export function IndexAuctiongoods (data) {
   return requestControl(PecooIndex.IndexAuctiongoods, data, bus)
 }
 // 查询拍品订单列表
-export function getorderlist (data) {
-  return requestControl(Order.getorderlist, data, bus)
+export function getAuctionOrderList (data) {
+  return requestControl(Order.getAuctionOrderList, data, bus)
 }
 // 支付15分钟确定
 export function updateCancelFrozenMoney (data) {
   return requestControl(Order.updateCancelFrozenMoney, data, bus)
 }
 // 拍品取消订单
-export function getorderCancel (data) {
-  return requestControl(Order.getorderCancel, data, bus)
+export function cancelAuctionOrder (data) {
+  return requestControl(Order.cancelAuctionOrder, data, bus)
 }
 // 拍品确认收货
 export function getorderReceive (data) {

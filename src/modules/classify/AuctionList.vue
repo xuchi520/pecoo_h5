@@ -29,11 +29,11 @@
       </template>
     </ol>
     <div class="mask" v-show="selectedIndex != null" @click="cancalMask"></div>
-    <pecoo-loading v-if="!isInit"></pecoo-loading>
     <div class="scroll-list">
+      <pecoo-loading v-if="!isInit"></pecoo-loading>
       <div v-infinite-scroll="loadMore" :infinite-scroll-disabled="isLoad" infinite-scroll-distance="10" class="load-list">
-        <list :listData="listData" :isLoad="isLoad" :marginTop="'103px'"></list>
-        <loading-words :isLoad="isLoading()" :isComplete="isComplete()"></loading-words>
+        <list v-if="isInit" :listData="listData" :isLoad="isLoad" :marginTop="'103px'"></list>
+        <loading-words v-if="isInit" :isLoad="isLoading()" :isComplete="isComplete()"></loading-words>
         <not-data v-if="isInit && !listData.length && !totalCount"></not-data>
       </div>
     </div>
@@ -213,19 +213,11 @@ export default {
     },
     // 显示正在加载中
     isLoading () {
-      if (this.isInit && this.isLoad) {
-        return true
-      } else {
-        return false
-      }
+      return this.isInit && this.isLoad
     },
     // 加载完成
     isComplete () {
-      if (this.isInit && this.listData.length && this.listData.length >= this.totalCount) {
-        return true
-      } else {
-        return false
-      }
+      return this.isInit && this.listData.length && this.listData.length >= this.totalCount
     }
   },
   created () {
@@ -242,7 +234,7 @@ export default {
 }
 .search-pic{
   @include wh($w: 100%, $h: 100%);
-  background: url(../../assets/images/common/merge.png) -263px 116px;
+  background: url(../../assets/images/common/merge.png) -278px 116px;
 }
 .condition{
   @include font($size: 13px, $family: 'PingFang-SC-Medium');
@@ -265,7 +257,7 @@ export default {
     .selected-arrow{
       display: inline-block;
       @include wh($w: 12px, $h: 8px);
-      background: url(../../assets/images/common/merge.png) -364px 53px;
+      background: url(../../assets/images/common/merge.png) -267px 22px;
     }
     .selected-sort{
       color: $color1;
@@ -273,7 +265,7 @@ export default {
     .arrow{
       display: inline-block;
       @include wh($w: 12px, $h: 8px);
-      background: url(../../assets/images/common/merge.png) -327px 53px;
+      background: url(../../assets/images/common/merge.png) -231px 22px;
     }
   }
   .screen{
@@ -317,7 +309,7 @@ export default {
 }
 .paging{
   @include wh($w: 1.24rem, $h: 1.24rem);
-  background: url(../../assets/images/common/merge.png) -327px 53px;
+  background: url(../../assets/images/common/merge.png) -324px 65px;
   position: fixed;
   bottom:0.8rem;
   right: 0.6rem;
