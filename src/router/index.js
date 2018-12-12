@@ -14,6 +14,12 @@ import LuxuryAddressEdit from '@/modules/luxury/luxuryAddress/LuxuryAddressEdit'
 import LuxuryList from '@/modules/luxury/luxuryList/LuxuryList'
 import Mine from '@/modules/mine/Mine'
 import LuxuryConfirm from '@/modules/luxury/luxuryConfirm/LuxuryConfirm'
+import Watchmaker from '@/modules/watchmaker/Watchmaker'
+import WatchmakerIndex from '@/modules/watchmaker/components/WatchmakerIndex'
+import WatchmakerList from '@/modules/watchmaker/components/WatchmakerList'
+import WatchmakerList1 from '@/modules/watchmaker/components/WatchmakerList1'
+import WatchmakerList2 from '@/modules/watchmaker/components/WatchmakerList2'
+import WatchmakerList3 from '@/modules/watchmaker/components/WatchmakerList3'
 import AuctionList from '@/modules/classify/AuctionList'
 import Login from '@/modules/login/Login'
 import Order from '@/modules/order/Order'
@@ -98,6 +104,42 @@ export default new Router({
       name: 'luxuryAddressEdit',
       component: LuxuryAddressEdit,
       meta: { title: '收货地址' }
+    },
+    {
+      path: '/',
+      component: Watchmaker,
+      children: [
+        {
+          path: '/watchmakerindex',
+          name: 'watchmakerindex',
+          component: WatchmakerIndex,
+          meta: { title: '独立制表师' }
+        },
+        {
+          path: '/watchmakerlist',
+          name: 'watchmakerlist',
+          component: WatchmakerList,
+          meta: { title: '制表师小丑系列' }
+        },
+        {
+          path: '/watchmakerlist1',
+          name: 'watchmakerlist1',
+          component: WatchmakerList1,
+          meta: { title: '制表师文森特系列' }
+        },
+        {
+          path: '/watchmakerlist2',
+          name: 'watchmakerlist2',
+          component: WatchmakerList2,
+          meta: { title: '制表师埃尔杜比系列' }
+        },
+        {
+          path: '/watchmakerlist3',
+          name: 'watchmakerlist3',
+          component: WatchmakerList3,
+          meta: { title: '新锐设计师品牌' }
+        }
+      ]
     },
     {
       path: '/mine',

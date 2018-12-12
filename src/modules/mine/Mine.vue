@@ -69,10 +69,12 @@
     <div class="service-tel">
       客服热线:400-888-8888
     </div>
+    <pecoo-footer></pecoo-footer>
   </div>
 </template>
 
 <script>
+import pecooFooter from '../../components/common/PecooFooter'
 export default {
   name: 'Mine',
   data () {
@@ -96,6 +98,9 @@ export default {
         }
       ]
     }
+  },
+  components: {
+    pecooFooter
   }
 }
 </script>
