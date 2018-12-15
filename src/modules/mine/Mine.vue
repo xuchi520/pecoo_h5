@@ -14,7 +14,7 @@
         </router-link>
         <ul class="order-status">
           <li v-for="item in orderStatus" :key="item.name">
-            <img src="../../assets/logo.png" alt="" width="35px" height="35px">
+            <img src="../../assets/images/mine/pedding_goods.png" alt="" width="35px" height="35px">
             <router-link :to="item.url">{{item.name}}</router-link>
           </li>
         </ul>
@@ -27,42 +27,42 @@
         <p>我的收藏</p>
       </div>
       <div class="item">
-        <img src="../../assets/images/mine/my_collect.png" alt="">
-        <p>我的收藏</p>
+        <img src="../../assets/images/mine/volume.png" alt="">
+        <p>优惠卷</p>
       </div>
       <div class="item item-last">
-        <img src="../../assets/images/mine/my_collect.png" alt="">
-        <p>我的收藏</p>
+        <img src="../../assets/images/mine/package.png" alt="">
+        <p>我的钱包</p>
       </div>
     </div>
     <div class="function">
       <div class="item">
-        <img src="../../assets/images/mine/my_collect.png" alt="">
-        <p>我的收藏</p>
+        <img src="../../assets/images/mine/gold.png" alt="">
+        <p>金币商城</p>
       </div>
       <div class="item">
-        <img src="../../assets/images/mine/my_collect.png" alt="">
-        <p>我的收藏</p>
+        <img src="../../assets/images/mine/recommend.png" alt="">
+        <p>我的推荐</p>
       </div>
       <div class="item item-last">
-        <img src="../../assets/images/mine/my_collect.png" alt="">
-        <p>我的收藏</p>
+        <img src="../../assets/images/mine/Figure.png" alt="">
+        <p>设置</p>
       </div>
     </div>
     <div class="new-user">
-      <p class="title">新手任务</p>
+      <p class="title">新手任务></p>
       <div class="user-task">
         <div class="item">
-          <img src="../../assets/logo.png" alt="">
-          <p>完成注册</p>
+          <img src="../../assets/images/mine/registered.png" alt="">
+          <p class="item-title">完成注册</p>
         </div>
         <div class="item">
-          <img src="../../assets/logo.png" alt="">
-          <p>完成注册</p>
+          <img src="../../assets/images/mine/authenticate.png" alt="">
+          <p class="item-title">实名验证</p>
         </div>
         <div class="item">
-          <img src="../../assets/logo.png" alt="">
-          <p>完成注册</p>
+          <img src="../../assets/images/mine/purchased.png" alt="">
+          <p class="item-title">首单购买</p>
         </div>
       </div>
     </div>
@@ -210,6 +210,9 @@ export default {
           text-align: center;
           img{
             width: .4rem;
+          }
+          .item-title{
+            color: #333;
           }
         }
       }
